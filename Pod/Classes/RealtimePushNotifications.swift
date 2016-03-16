@@ -32,9 +32,9 @@ extension UIResponder: OrtcClientPushNotificationsDelegate{
 /**
      Overrides UIResponder initialize method
 */
-    override public class func initialize() {
-        NSNotificationCenter.defaultCenter().addObserver(self.self, selector: "registForNotifications", name: UIApplicationDidFinishLaunchingNotification, object: nil)
-    }
+//    override public class func initialize() {
+//        NSNotificationCenter.defaultCenter().addObserver(self.self, selector: "registForNotifications", name: UIApplicationDidFinishLaunchingNotification, object: nil)
+//    }
     
     @available(iOS, deprecated=1.0, message="For iOS older versions")
     static func registForNotifications() -> Bool {
