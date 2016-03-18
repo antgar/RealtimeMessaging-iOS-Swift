@@ -121,5 +121,7 @@ extension UIResponder: OrtcClientPushNotificationsDelegate{
     public func onPushNotificationWithPayload(channel:String, message:String, payload:NSDictionary?){
             preconditionFailure("Must override onPushNotificationWithPayload method on AppDelegate")
     }
-
+    public func onPushNotification() {
+        preconditionFailure("Must ovveride")
+    }
 }
