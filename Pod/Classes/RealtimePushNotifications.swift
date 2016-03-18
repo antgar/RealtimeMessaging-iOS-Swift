@@ -22,6 +22,7 @@ public protocol OrtcClientPushNotificationsDelegate{
      * - parameter payload: a dictionary containig the payload data
      */
     func onPushNotificationWithPayload(channel:String, message:String, payload:NSDictionary?)
+    func onPushNotification()
 }
 
 /**
@@ -59,6 +60,9 @@ extension UIResponder: OrtcClientPushNotificationsDelegate{
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void){
         completionHandler(UIBackgroundFetchResult.NewData)
+        if((UIApplication.sharedApplication().delegate?.respondsToSelector("onPushNotifications:message:payload:")) != nil){
+            UIApplication.sharedApplication().delegate as! UIResponder).onPushNotification()
+        }
         self.application(application, didReceiveRemoteNotification: userInfo)
     }
     
